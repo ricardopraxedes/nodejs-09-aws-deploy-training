@@ -5,8 +5,6 @@ class CategoryRepository {
 
   private static INSTANCE: CategoryRepository;
 
-  constructor() {}
-
   static getInstance() {
     if (!this.INSTANCE) {
       this.INSTANCE = new CategoryRepository();

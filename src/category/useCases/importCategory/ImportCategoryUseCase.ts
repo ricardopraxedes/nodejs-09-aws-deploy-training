@@ -1,8 +1,9 @@
 import fs from "fs";
 import csvParse from "csv-parse";
-import { CategoryRepository } from "../../repository/CategoriesRepository";
+import { CategoryRepository } from "../../repository/CategoryRepository";
+import { Category } from "../../model/Category";
 
-class UploadFileUseCase {
+class ImportCategoryUseCase {
   constructor(private categoryRepository: CategoryRepository) {}
 
   loadCategories(file: Express.Multer.File): Promise<Category[]> {
@@ -24,6 +25,7 @@ class UploadFileUseCase {
           });
         })
         .on("end", () => {
+          fs.promises.unlink(file.path);
           resolve(categories);
         })
         .on("error", (err) => {
@@ -45,17 +47,5 @@ class UploadFileUseCase {
       }
     });
   }
-
-  // execute(file: Express.Multer.File) {
-  //   const stream = fs.createReadStream(file.path);
-
-  //   const parseFile = csvParse();
-
-  //   stream.pipe(parseFile);
-
-  //   parseFile.on("data", async (line) => {
-  //     console.log(line);
-  //   });
-  // }
 }
-export { UploadFileUseCase };
+export { ImportCategoryUseCase };
