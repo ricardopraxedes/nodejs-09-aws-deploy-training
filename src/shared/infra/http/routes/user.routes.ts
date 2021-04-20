@@ -7,7 +7,7 @@ import { UpdatePhotoController } from "../../../../modules/users/useCases/Update
 
 const userRoutes = Router();
 
-const uploadPhoto = multer(uploadConfig.upload("./tmp/user-photos"));
+const uploadPhoto = multer(uploadConfig);
 
 const createUserController = new CreateUserController();
 const updatePhotoController = new UpdatePhotoController();
