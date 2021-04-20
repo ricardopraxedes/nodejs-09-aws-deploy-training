@@ -6,7 +6,7 @@ export class AlterUserAddColumnPhotoUrl1617317647615
     await queryRunner.addColumn(
       "users",
       new TableColumn({
-        name: "photoUrl",
+        name: "photoName",
         type: "varchar",
         isNullable: true,
       })
@@ -14,6 +14,6 @@ export class AlterUserAddColumnPhotoUrl1617317647615
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropColumn("users", "photoUrl");
+    await queryRunner.dropColumn("users", "photoName");
   }
 }

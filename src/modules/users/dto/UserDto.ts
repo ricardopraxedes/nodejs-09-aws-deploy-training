@@ -5,7 +5,7 @@ class UserDto {
 
   password: string;
 
-  photoUrl?: string;
+  photoName?: string;
 }
 
 export { UserDto };

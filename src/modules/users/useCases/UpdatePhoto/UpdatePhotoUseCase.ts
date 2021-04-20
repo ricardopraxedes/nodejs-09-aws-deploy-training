@@ -9,14 +9,14 @@ class UpdatePhotoUseCase {
     @inject("UsersRepository") private usersRepository: UsersRepository
   ) {}
 
-  async execute(user: User, photoUrl: string): Promise<void> {
-    if (user.photoUrl) {
-      await deleteFile(`./tmp/user_photos/${photoUrl}`);
+  async execute(user: User, photoName: string): Promise<void> {
+    if (user.photoName) {
+      await deleteFile(`./tmp/user_photos/${photoName}`);
     }
 
     const { email, password, id } = user;
 
-    await this.usersRepository.create({ email, password, photoUrl, id });
+    await this.usersRepository.create({ email, password, photoName, id });
   }
 }
 

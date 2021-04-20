@@ -16,7 +16,7 @@ class User {
   isAdmin: boolean;
 
   @Column()
-  photoUrl: string;
+  photoName: string;
 
   @CreateDateColumn()
   created_at: Date;
