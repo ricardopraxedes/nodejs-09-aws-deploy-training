@@ -5,7 +5,7 @@ import { IStorageProvider } from "../IStorageProvider";
 
 class LocalStorageProvider implements IStorageProvider {
   async save(file: string, folder: string): Promise<string> {
-    fs.promises.rename(
+    await fs.promises.rename(
       resolve(upload.tmpFolder, file),
       resolve(`${upload.tmpFolder}/${folder}`, file)
     );
@@ -13,15 +13,15 @@ class LocalStorageProvider implements IStorageProvider {
   }
 
   async delete(file: string, folder: string): Promise<void> {
-    const fileName = resolve(`${upload.tmpFolder}/${folder}`, file);
+    const filePath = resolve(`${upload.tmpFolder}/${folder}`, file);
 
     try {
-      await fs.promises.stat(fileName);
+      await fs.promises.stat(filePath);
     } catch {
       return;
     }
 
-    await fs.promises.unlink(fileName);
+    await fs.promises.unlink(filePath);
   }
 }
 export { LocalStorageProvider };
