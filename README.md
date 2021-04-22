@@ -1,3 +1,3 @@
-# nodejs-dependency-injection-training
+# nodejs-aws-deploy-training
 
-Api using TSyringe for dependency injection following RocketSeat Node.js bootcamp classes.
+Using AWS following RocketSeat Node.js bootcamp classes.
