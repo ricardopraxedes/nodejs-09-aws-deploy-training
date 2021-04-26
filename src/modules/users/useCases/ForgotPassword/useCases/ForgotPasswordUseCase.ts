@@ -33,10 +33,10 @@ class ForgotPasswordUseCase {
       expiration
     );
 
-    await this.handleEmail(email, passwordToken);
+    this.handleEmail(email, passwordToken);
   }
 
-  async handleEmail(email: string, passwordToken: string): Promise<void> {
+  handleEmail(email: string, passwordToken: string): void {
     const templatePath = resolve(
       __dirname,
       "..",
@@ -53,12 +53,7 @@ class ForgotPasswordUseCase {
 
     const subject = "Request to change password.";
 
-    await this.mailProvider.sendMail(
-      email,
-      subject,
-      mailVariables,
-      templatePath
-    );
+    this.mailProvider.sendMail(email, subject, mailVariables, templatePath);
   }
 }
 
