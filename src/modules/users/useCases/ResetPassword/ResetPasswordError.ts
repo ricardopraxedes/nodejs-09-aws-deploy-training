@@ -1,4 +1,4 @@
-import { AppError } from "../../../../shared/errors/AppError";
+import { AppError } from "@shared/errors/AppError";
 
 export namespace ResetPasswordError {
   export class InvalidToken extends AppError {

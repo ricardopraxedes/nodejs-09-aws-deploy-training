@@ -2,8 +2,8 @@ import request from "supertest";
 import { v4 as uuidV4 } from "uuid";
 import { hashSync } from "bcryptjs";
 import { Connection } from "typeorm";
-import { app } from "../../../../../shared/infra/http";
-import { createDBConnection } from "../../../../../shared/infra/typeorm";
+import { createDBConnection } from "@shared/infra/typeorm";
+import { app } from "@shared/infra/http";
 
 describe("Create category controller", () => {
   let connection: Connection;

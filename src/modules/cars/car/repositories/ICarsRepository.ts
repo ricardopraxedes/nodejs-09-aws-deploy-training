@@ -1,9 +1,8 @@
-import { CarDto } from "../dto/CarDto";
-
+import { CarDTO } from "../dto/CarDTO";
 import { Car } from "../infra/typeorm/model/Car";
 
 interface ICarsRepository {
-  create(data: CarDto): Promise<Car>;
+  create(data: CarDTO): Promise<Car>;
   listAvailable(
     name: string,
     brand: string,

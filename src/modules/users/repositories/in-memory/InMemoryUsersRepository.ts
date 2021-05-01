@@ -1,11 +1,11 @@
-import { UserDto } from "../../dto/UserDto";
+import { UserDTO } from "@modules/users/dto/UserDTO";
 import { IUsersRepository } from "../IUsersRepository";
 import { User } from "../../infra/typeorm/model/User";
 
 class InMemoryUsersRepository implements IUsersRepository {
   private users: User[] = [];
 
-  async create(userData: UserDto): Promise<void> {
+  async create(userData: UserDTO): Promise<void> {
     const user = new User();
 
     Object.assign(user, {

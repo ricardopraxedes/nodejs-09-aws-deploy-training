@@ -1,11 +1,11 @@
 import { Router } from "express";
 import multer from "multer";
-import uploadConfig from "../../../../config/upload";
-import { CreateCategoryController } from "../../../../modules/cars/category/useCases/createCategory/CreateCategoryController";
-import { ImportCategoryController } from "../../../../modules/cars/category/useCases/importCategory/ImportCategoryController";
-import { ListCategoryController } from "../../../../modules/cars/category/useCases/listCategory/ListCategoriesController";
-import { ensureAdmin } from "../middlewares/ensureAdmin";
+import uploadConfig from "@config/upload";
+import { CreateCategoryController } from "@modules/cars/category/useCases/createCategory/CreateCategoryController";
+import { ImportCategoryController } from "@modules/cars/category/useCases/importCategory/ImportCategoryController";
+import { ListCategoryController } from "@modules/cars/category/useCases/listCategory/ListCategoriesController";
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
+import { ensureAdmin } from "../middlewares/ensureAdmin";
 
 const categoryRoutes = Router();
 const upload = multer(uploadConfig);

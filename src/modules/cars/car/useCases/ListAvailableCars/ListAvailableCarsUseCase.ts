@@ -1,5 +1,4 @@
 import { inject, injectable } from "tsyringe";
-import { categoryRoutes } from "../../../../../shared/infra/http/routes/category.routes";
 import { Car } from "../../infra/typeorm/model/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 

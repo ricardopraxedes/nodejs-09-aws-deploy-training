@@ -1,6 +1,7 @@
-class CategoryDto {
-    name: string;
-    description: string;
+class CategoryDTO {
+  name: string;
+
+  description: string;
 }
 
-export { CategoryDto };
+export { CategoryDTO };

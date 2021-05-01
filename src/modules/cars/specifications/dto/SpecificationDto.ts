@@ -1,7 +1,7 @@
-class SpecificationDto {
+class SpecificationDTO {
   name: string;
 
   description: string;
 }
 
-export { SpecificationDto };
+export { SpecificationDTO };

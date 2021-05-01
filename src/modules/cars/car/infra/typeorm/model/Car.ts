@@ -1,3 +1,5 @@
+import { Category } from "@modules/cars/category/infra/typeorm/model/Category";
+import { Specification } from "@modules/cars/specifications/infra/typeorm/model/Specification";
 import {
   Column,
   Entity,
@@ -8,8 +10,6 @@ import {
   PrimaryColumn,
 } from "typeorm";
 import { v4 as uuidv4 } from "uuid";
-import { Category } from "../../../../category/infra/typeorm/model/Category";
-import { Specification } from "../../../../specifications/infra/typeorm/model/Specification";
 
 @Entity("cars")
 class Car {

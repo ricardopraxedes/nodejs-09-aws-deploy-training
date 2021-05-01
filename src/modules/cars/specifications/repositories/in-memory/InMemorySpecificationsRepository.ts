@@ -1,11 +1,11 @@
-import { SpecificationDto } from "../../dto/SpecificationDto";
+import { SpecificationDTO } from "../../dto/SpecificationDTO";
 import { Specification } from "../../infra/typeorm/model/Specification";
 import { ISpecificationsRepository } from "../ISpecificationsRepository";
 
 class InMemorySpecificationsRepository implements ISpecificationsRepository {
   private specifications: Specification[] = [];
 
-  async create(data: SpecificationDto): Promise<Specification> {
+  async create(data: SpecificationDTO): Promise<Specification> {
     const specification = new Specification();
 
     Object.assign(specification, {

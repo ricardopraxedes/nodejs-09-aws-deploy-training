@@ -1,4 +1,4 @@
-interface UserDto {
+interface UserDTO {
   id?: string;
 
   email: string;
@@ -8,4 +8,4 @@ interface UserDto {
   photoName?: string;
 }
 
-export { UserDto };
+export { UserDTO };

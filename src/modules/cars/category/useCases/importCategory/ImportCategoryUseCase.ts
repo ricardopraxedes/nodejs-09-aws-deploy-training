@@ -1,7 +1,8 @@
 import csvParse from "csv-parse";
 import fs from "fs";
 import { inject, injectable } from "tsyringe";
-import { CategoryDto } from "../../dto/CategoryDto";
+import { CategoryDTO } from "../../dto/CategoryDTO";
+
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 @injectable()
@@ -11,9 +12,9 @@ class ImportCategoryUseCase {
     private categoriesRepository: ICategoriesRepository
   ) {}
 
-  loadCategories(file: Express.Multer.File): Promise<CategoryDto[]> {
+  loadCategories(file: Express.Multer.File): Promise<CategoryDTO[]> {
     return new Promise((resolve, reject) => {
-      const categories: CategoryDto[] = [];
+      const categories: CategoryDTO[] = [];
 
       const stream = fs.createReadStream(file.path);
 

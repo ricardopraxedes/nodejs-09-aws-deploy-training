@@ -1,7 +1,7 @@
+import { CreateCarController } from "@modules/cars/car/useCases/CreateCar/CreateCarController";
+import { CreateCarSpecificationController } from "@modules/cars/car/useCases/CreateCarSpecification/CreateCarSpecificationController";
+import { ListAvailableCarsController } from "@modules/cars/car/useCases/ListAvailableCars/ListAvailableCarsController";
 import { Router } from "express";
-import { CreateCarController } from "../../../../modules/cars/car/useCases/CreateCar/CreateCarController";
-import { ListAvailableCarsController } from "../../../../modules/cars/car/useCases/ListAvailableCars/ListAvailableCarsController";
-import { CreateCarSpecificationController } from "../../../../modules/cars/car/useCases/CreateCarSpecification/CreateCarSpecificationController";
 
 const carRoutes = Router();
 

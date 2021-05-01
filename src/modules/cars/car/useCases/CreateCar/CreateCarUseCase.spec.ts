@@ -1,8 +1,8 @@
+import { AppError } from "@shared/errors/AppError";
 import { validate } from "uuid";
-import { AppError } from "../../../../../shared/errors/AppError";
-import { CarDto } from "../../dto/CarDto";
-import { InMemoryCarsRepository } from "../../repositories/in-memory/InMemoryCarsRepository";
+import { CarDTO } from "../../dto/CarDTO";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
+import { InMemoryCarsRepository } from "../../repositories/in-memory/InMemoryCarsRepository";
 import { CreateCarUseCase } from "./CreateCarUseCase";
 
 describe("Create car use case", () => {
@@ -15,9 +15,9 @@ describe("Create car use case", () => {
   });
 
   it("should be possible to create a new car as available", async () => {
-    const carDto = new CarDto();
+    const carDTO = new CarDTO();
 
-    Object.assign(carDto, {
+    Object.assign(carDTO, {
       name: "name",
 
       description: "description",
@@ -33,20 +33,20 @@ describe("Create car use case", () => {
       category: null,
     });
 
-    const car = await createCarUseCase.execute(carDto);
+    const car = await createCarUseCase.execute(carDTO);
 
     expect(validate(car.id)).toBe(true);
 
     expect(car).toMatchObject({
-      ...carDto,
+      ...carDTO,
       available: true,
     });
   });
 
   it("should not be possible to create two cars with the same license_plate ", async () => {
-    const carDto = new CarDto();
+    const carDTO = new CarDTO();
 
-    Object.assign(carDto, {
+    Object.assign(carDTO, {
       name: "name",
 
       description: "description",
@@ -62,10 +62,10 @@ describe("Create car use case", () => {
       category: null,
     });
 
-    await createCarUseCase.execute(carDto);
+    await createCarUseCase.execute(carDTO);
 
     expect(async () => {
-      await createCarUseCase.execute(carDto);
+      await createCarUseCase.execute(carDTO);
     }).rejects.toBeInstanceOf(AppError);
   });
 });

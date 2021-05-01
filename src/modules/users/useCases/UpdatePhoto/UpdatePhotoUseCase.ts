@@ -1,7 +1,7 @@
+import { User } from "@modules/users/infra/typeorm/model/User";
+import { UsersRepository } from "@modules/users/infra/typeorm/repositories/UsersRepository";
+import { IStorageProvider } from "@shared/container/providers/storageProvider/IStorageProvider";
 import { inject, injectable } from "tsyringe";
-import { IStorageProvider } from "../../../../shared/container/providers/storageProvider/IStorageProvider";
-import { User } from "../../infra/typeorm/model/User";
-import { UsersRepository } from "../../infra/typeorm/repositories/UsersRepository";
 
 @injectable()
 class UpdatePhotoUseCase {

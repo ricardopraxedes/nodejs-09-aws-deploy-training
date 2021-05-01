@@ -1,11 +1,11 @@
-import { CarDto } from "../../dto/CarDto";
+import { CarDTO } from "../../dto/CarDTO";
 import { Car } from "../../infra/typeorm/model/Car";
 import { ICarsRepository } from "../ICarsRepository";
 
 class InMemoryCarsRepository implements ICarsRepository {
   private cars: Car[] = [];
 
-  async create(data: CarDto): Promise<Car> {
+  async create(data: CarDTO): Promise<Car> {
     const car = new Car();
 
     Object.assign(car, {

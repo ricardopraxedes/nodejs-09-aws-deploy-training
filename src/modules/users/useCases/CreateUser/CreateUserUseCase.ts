@@ -1,8 +1,8 @@
 import { inject, injectable } from "tsyringe";
 import { hashSync } from "bcryptjs";
-import { UserDto } from "../../dto/UserDto";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { AppError } from "../../../../shared/errors/AppError";
+import { UserDTO } from "@modules/users/dto/UserDTO";
+import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { AppError } from "@shared/errors/AppError";
 
 @injectable()
 class CreateUserUseCase {
@@ -10,7 +10,7 @@ class CreateUserUseCase {
     @inject("UsersRepository") private usersRepository: IUsersRepository
   ) {}
 
-  async execute({ email, password }: UserDto): Promise<void> {
+  async execute({ email, password }: UserDTO): Promise<void> {
     const user = await this.usersRepository.findByEmail(email);
 
     if (user) {

@@ -1,7 +1,7 @@
+import { UserDTO } from "@modules/users/dto/UserDTO";
+import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { getRepository, Repository } from "typeorm";
-import { UserDto } from "../../../dto/UserDto";
 import { User } from "../model/User";
-import { IUsersRepository } from "../../../repositories/IUsersRepository";
 
 class UsersRepository implements IUsersRepository {
   private repository: Repository<User>;
@@ -10,7 +10,7 @@ class UsersRepository implements IUsersRepository {
     this.repository = getRepository(User);
   }
 
-  async create({ email, password, photoName, id }: UserDto): Promise<void> {
+  async create({ email, password, photoName, id }: UserDTO): Promise<void> {
     const user = this.repository.create({
       id,
       email,

@@ -1,6 +1,6 @@
+import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
-import { AppError } from "../../../../../shared/errors/AppError";
-import { CarDto } from "../../dto/CarDto";
+import { CarDTO } from "../../dto/CarDTO";
 import { Car } from "../../infra/typeorm/model/Car";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 
@@ -10,7 +10,7 @@ class CreateCarUseCase {
     @inject("CarsRepository") private carsRepository: ICarsRepository
   ) {}
 
-  async execute(data: CarDto): Promise<Car> {
+  async execute(data: CarDTO): Promise<Car> {
     const carExists = await this.carsRepository.findByLicensePlate(
       data.license_plate
     );

@@ -1,7 +1,7 @@
 import { InMemoryCarsRepository } from "../../repositories/in-memory/InMemoryCarsRepository";
 import { ICarsRepository } from "../../repositories/ICarsRepository";
 import { ListAvailableCarsUseCase } from "./ListAvailableCarsUseCase";
-import { CarDto } from "../../dto/CarDto";
+import { CarDTO } from "../../dto/CarDTO";
 
 describe("List cars use case", () => {
   let carsRepository: ICarsRepository;
@@ -13,9 +13,9 @@ describe("List cars use case", () => {
   });
 
   it("should list all available cars", async () => {
-    const carDto = new CarDto();
+    const carDTO = new CarDTO();
 
-    Object.assign(carDto, {
+    Object.assign(carDTO, {
       name: "name",
 
       description: "description",
@@ -31,7 +31,7 @@ describe("List cars use case", () => {
       category: null,
     });
 
-    const car = await carsRepository.create(carDto);
+    const car = await carsRepository.create(carDTO);
 
     const cars = await listAvailableCarsUseCase.execute();
 
@@ -39,9 +39,9 @@ describe("List cars use case", () => {
   });
 
   it("should list all available cars by name", async () => {
-    const firstCarDto = new CarDto();
+    const firstCarDTO = new CarDTO();
 
-    Object.assign(firstCarDto, {
+    Object.assign(firstCarDTO, {
       name: "Carro Um",
 
       description: "description",
@@ -57,9 +57,9 @@ describe("List cars use case", () => {
       category: null,
     });
 
-    const secondCarDto = new CarDto();
+    const secondCarDTO = new CarDTO();
 
-    Object.assign(secondCarDto, {
+    Object.assign(secondCarDTO, {
       name: "Carro Dois",
 
       description: "description",
@@ -75,8 +75,8 @@ describe("List cars use case", () => {
       category: null,
     });
 
-    const firstCar = await carsRepository.create(firstCarDto);
-    const secondCar = await carsRepository.create(secondCarDto);
+    const firstCar = await carsRepository.create(firstCarDTO);
+    await carsRepository.create(secondCarDTO);
 
     const cars = await listAvailableCarsUseCase.execute({
       name: firstCar.name,
@@ -86,9 +86,9 @@ describe("List cars use case", () => {
   });
 
   it("should list all available cars by brand", async () => {
-    const firstCarDto = new CarDto();
+    const firstCarDTO = new CarDTO();
 
-    Object.assign(firstCarDto, {
+    Object.assign(firstCarDTO, {
       name: "Carro Um",
 
       description: "description",
@@ -104,9 +104,9 @@ describe("List cars use case", () => {
       category: null,
     });
 
-    const secondCarDto = new CarDto();
+    const secondCarDTO = new CarDTO();
 
-    Object.assign(secondCarDto, {
+    Object.assign(secondCarDTO, {
       name: "Carro Dois",
 
       description: "description",
@@ -122,8 +122,8 @@ describe("List cars use case", () => {
       category: null,
     });
 
-    await carsRepository.create(firstCarDto);
-    const secondCar = await carsRepository.create(secondCarDto);
+    await carsRepository.create(firstCarDTO);
+    const secondCar = await carsRepository.create(secondCarDTO);
 
     const cars = await listAvailableCarsUseCase.execute({
       brand: secondCar.brand,
@@ -133,9 +133,9 @@ describe("List cars use case", () => {
   });
 
   it("should list all available cars by brand", async () => {
-    const firstCarDto = new CarDto();
+    const firstCarDTO = new CarDTO();
 
-    Object.assign(firstCarDto, {
+    Object.assign(firstCarDTO, {
       name: "Carro Um",
 
       description: "description",
@@ -151,9 +151,9 @@ describe("List cars use case", () => {
       category: null,
     });
 
-    const secondCarDto = new CarDto();
+    const secondCarDTO = new CarDTO();
 
-    Object.assign(secondCarDto, {
+    Object.assign(secondCarDTO, {
       name: "Carro Dois",
 
       description: "description",
@@ -169,8 +169,8 @@ describe("List cars use case", () => {
       category: null,
     });
 
-    await carsRepository.create(firstCarDto);
-    const secondCar = await carsRepository.create(secondCarDto);
+    await carsRepository.create(firstCarDTO);
+    const secondCar = await carsRepository.create(secondCarDTO);
 
     const cars = await listAvailableCarsUseCase.execute({
       brand: secondCar.brand,
@@ -180,9 +180,9 @@ describe("List cars use case", () => {
   });
 
   it("should list all available cars by category_id", async () => {
-    const firstCarDto = new CarDto();
+    const firstCarDTO = new CarDTO();
 
-    Object.assign(firstCarDto, {
+    Object.assign(firstCarDTO, {
       name: "Carro Um",
 
       description: "description",
@@ -198,9 +198,9 @@ describe("List cars use case", () => {
       category_id: "A",
     });
 
-    const secondCarDto = new CarDto();
+    const secondCarDTO = new CarDTO();
 
-    Object.assign(secondCarDto, {
+    Object.assign(secondCarDTO, {
       name: "Carro Dois",
 
       description: "description",
@@ -216,8 +216,8 @@ describe("List cars use case", () => {
       category_id: "B",
     });
 
-    await carsRepository.create(firstCarDto);
-    const secondCar = await carsRepository.create(secondCarDto);
+    await carsRepository.create(firstCarDTO);
+    const secondCar = await carsRepository.create(secondCarDTO);
 
     const cars = await listAvailableCarsUseCase.execute({
       category_id: secondCar.category_id,

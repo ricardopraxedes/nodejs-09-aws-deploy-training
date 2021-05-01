@@ -1,5 +1,5 @@
 import { validate } from "uuid";
-import { SpecificationDto } from "../dto/SpecificationDto";
+import { SpecificationDTO } from "../dto/SpecificationDTO";
 import { InMemorySpecificationsRepository } from "../repositories/in-memory/InMemorySpecificationsRepository";
 import { ISpecificationsRepository } from "../repositories/ISpecificationsRepository";
 import { CreateSpecificationUseCase } from "./CreateSpecificationsUseCase";
@@ -16,18 +16,18 @@ describe("Create Specification Use Case", () => {
   });
 
   it("should be possible to create a new specification", async () => {
-    const specificationDto = new SpecificationDto();
+    const specificationDTO = new SpecificationDTO();
 
-    Object.assign(specificationDto, {
+    Object.assign(specificationDTO, {
       name: "specification name",
       description: "specification description",
     });
 
     const specification = await createSpecificationUseCase.execute(
-      specificationDto
+      specificationDTO
     );
 
     expect(validate(specification.id)).toBe(true);
-    expect(specification).toMatchObject(specificationDto);
+    expect(specification).toMatchObject(specificationDTO);
   });
 });

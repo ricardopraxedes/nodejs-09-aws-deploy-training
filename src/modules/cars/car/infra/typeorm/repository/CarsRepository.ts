@@ -1,12 +1,12 @@
+import { CarDTO } from "@modules/cars/car/dto/CarDTO";
+import { ICarsRepository } from "@modules/cars/car/repositories/ICarsRepository";
 import { getRepository } from "typeorm";
-import { CarDto } from "../../../dto/CarDto";
 import { Car } from "../model/Car";
-import { ICarsRepository } from "../../../repositories/ICarsRepository";
 
 class CarsRepository implements ICarsRepository {
   private repository = getRepository(Car);
 
-  async create(data: CarDto): Promise<Car> {
+  async create(data: CarDTO): Promise<Car> {
     const car = this.repository.create({ ...data });
 
     await this.repository.save(car);

@@ -1,10 +1,10 @@
+import { IUsersPasswordTokensRepository } from "@modules/users/repositories/IUsersPasswordTokensRepository";
+import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { IDateProvider } from "@shared/container/providers/dateProvider/IDateProvider";
+import { IMailProvider } from "@shared/container/providers/mailProvider/IMailProvider";
 import { resolve } from "path";
 import { inject, injectable } from "tsyringe";
 import { v4 as uuidv4 } from "uuid";
-import { IDateProvider } from "../../../../../shared/container/providers/dateProvider/IDateProvider";
-import { IMailProvider } from "../../../../../shared/container/providers/mailProvider/IMailProvider";
-import { IUsersPasswordTokensRepository } from "../../../repositories/IUsersPasswordTokensRepository";
-import { IUsersRepository } from "../../../repositories/IUsersRepository";
 import { ForgotPasswordError } from "./ForgotPasswordError";
 
 @injectable()

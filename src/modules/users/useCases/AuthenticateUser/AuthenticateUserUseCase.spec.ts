@@ -1,7 +1,8 @@
+import { InMemoryUsersRepository } from "@modules/users/repositories/in-memory/InMemoryUsersRepository";
+import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { AppError } from "@shared/errors/AppError";
 import { hashSync } from "bcryptjs";
-import { AppError } from "../../../../shared/errors/AppError";
-import { InMemoryUsersRepository } from "../../repositories/in-memory/InMemoryUsersRepository";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
+
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
 
 describe("Authenticate user use case", () => {

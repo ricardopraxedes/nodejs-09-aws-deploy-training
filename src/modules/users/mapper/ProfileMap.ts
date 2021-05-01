@@ -1,5 +1,5 @@
 import { classToClass } from "class-transformer";
-import { ProfileDTO } from "../dto/ProfileDto";
+import { ProfileDTO } from "../dto/ProfileDTO";
 import { User } from "../infra/typeorm/model/User";
 
 class ProfileMap {

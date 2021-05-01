@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { SpecificationDto } from "../dto/SpecificationDto";
+import { SpecificationDTO } from "../dto/SpecificationDTO";
 import { Specification } from "../infra/typeorm/model/Specification";
 import { ISpecificationsRepository } from "../repositories/ISpecificationsRepository";
 
@@ -10,7 +10,7 @@ class CreateSpecificationUseCase {
     private specificationsRepository: ISpecificationsRepository
   ) {}
 
-  async execute(data: SpecificationDto): Promise<Specification> {
+  async execute(data: SpecificationDTO): Promise<Specification> {
     const specification = await this.specificationsRepository.create(data);
     return specification;
   }

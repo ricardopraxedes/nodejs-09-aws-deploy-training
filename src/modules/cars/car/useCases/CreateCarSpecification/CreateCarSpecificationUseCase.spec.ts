@@ -1,7 +1,7 @@
-import { AppError } from "../../../../../shared/errors/AppError";
-import { SpecificationDto } from "../../../specifications/dto/SpecificationDto";
-import { InMemorySpecificationsRepository } from "../../../specifications/repositories/in-memory/InMemorySpecificationsRepository";
-import { CarDto } from "../../dto/CarDto";
+import { SpecificationDTO } from "@modules/cars/specifications/dto/SpecificationDTO";
+import { InMemorySpecificationsRepository } from "@modules/cars/specifications/repositories/in-memory/InMemorySpecificationsRepository";
+import { AppError } from "@shared/errors/AppError";
+import { CarDTO } from "../../dto/CarDTO";
 import { InMemoryCarsRepository } from "../../repositories/in-memory/InMemoryCarsRepository";
 import { CreateCarSpecificationUseCase } from "./CreateCarSpecificationUseCase";
 
@@ -20,9 +20,9 @@ describe("Create car specification", () => {
   });
 
   it("should be possible to create specification for a car", async () => {
-    const carDto = new CarDto();
+    const carDTO = new CarDTO();
 
-    Object.assign(carDto, {
+    Object.assign(carDTO, {
       name: "name",
 
       description: "description",
@@ -38,7 +38,7 @@ describe("Create car specification", () => {
       category: null,
     });
 
-    const specificationDto = new SpecificationDto();
+    const specificationDto = new SpecificationDTO();
 
     Object.assign(specificationDto, {
       name: "specification name",
@@ -49,7 +49,7 @@ describe("Create car specification", () => {
       specificationDto
     );
 
-    const car = await inMemoryCarsRepository.create(carDto);
+    const car = await inMemoryCarsRepository.create(carDTO);
 
     const carWithSpecification = await createCarSpecificationUseCase.execute(
       car.id,

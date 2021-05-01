@@ -1,9 +1,9 @@
+import { UserDTO } from "@modules/users/dto/UserDTO";
+import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { AppError } from "@shared/errors/AppError";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
-import { AppError } from "../../../../shared/errors/AppError";
-import { UserDto } from "../../dto/UserDto";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 @injectable()
 class AuthenticateUserUseCase {
@@ -11,7 +11,7 @@ class AuthenticateUserUseCase {
     @inject("UsersRepository") private usersRepository: IUsersRepository
   ) {}
 
-  async execute({ email, password }: UserDto): Promise<string> {
+  async execute({ email, password }: UserDTO): Promise<string> {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {

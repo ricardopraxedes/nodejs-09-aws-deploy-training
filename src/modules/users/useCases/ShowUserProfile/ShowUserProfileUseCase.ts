@@ -1,8 +1,8 @@
+import { ProfileDTO } from "@modules/users/dto/ProfileDTO";
+import { User } from "@modules/users/infra/typeorm/model/User";
+import { UsersRepository } from "@modules/users/infra/typeorm/repositories/UsersRepository";
+import { ProfileMap } from "@modules/users/mapper/ProfileMap";
 import { inject, injectable } from "tsyringe";
-import { ProfileDTO } from "../../dto/ProfileDto";
-import { User } from "../../infra/typeorm/model/User";
-import { UsersRepository } from "../../infra/typeorm/repositories/UsersRepository";
-import { ProfileMap } from "../../mapper/ProfileMap";
 
 @injectable()
 class ShowUserProfileUseCase {

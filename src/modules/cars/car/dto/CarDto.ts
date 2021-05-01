@@ -1,4 +1,4 @@
-class CarDto {
+class CarDTO {
   id?: string;
 
   name: string;
@@ -18,4 +18,4 @@ class CarDto {
   category_id: string;
 }
 
-export { CarDto };
+export { CarDTO };

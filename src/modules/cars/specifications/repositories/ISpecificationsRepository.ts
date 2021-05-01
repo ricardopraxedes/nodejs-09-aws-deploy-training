@@ -1,8 +1,8 @@
-import { SpecificationDto } from "../dto/SpecificationDto";
+import { SpecificationDTO } from "../dto/SpecificationDTO";
 import { Specification } from "../infra/typeorm/model/Specification";
 
 interface ISpecificationsRepository {
-  create(data: SpecificationDto): Promise<Specification>;
+  create(data: SpecificationDTO): Promise<Specification>;
   findByIds(ids: string[]): Promise<Specification[]>;
 }
 
