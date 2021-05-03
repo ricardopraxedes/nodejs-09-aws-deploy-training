@@ -3,7 +3,7 @@ import { v4 as uuidV4 } from "uuid";
 import { createDBConnection } from "..";
 
 async function create() {
-  const connection = await createDBConnection("localhost");
+  const connection = await createDBConnection();
 
   const id = uuidV4();
 
