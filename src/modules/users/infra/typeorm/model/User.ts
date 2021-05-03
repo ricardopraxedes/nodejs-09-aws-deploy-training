@@ -28,7 +28,7 @@ class User {
       case "local":
         return `${process.env.APP_URL}/user_photos/${this.photoName}`;
       case "s3":
-        return `${process.env.AWS_BUCKET}/user_photos/${this.photoName}`;
+        return `${process.env.AWS_BUCKET_URL}/user_photos/${this.photoName}`;
       default:
         return null;
     }
