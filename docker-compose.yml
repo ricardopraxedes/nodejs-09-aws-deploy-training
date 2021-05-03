@@ -13,23 +13,6 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - pgdata:/data/postgres
-  app:
-    build:
-      context: .
-      dockerfile: dockerfile
-    container_name: nodejs-training
-    expose:
-      - 3333
-    ports:
-      - 3333:3333
-      - 9229:9229
-    volumes:
-      - .:/usr/app
-    command: npm run dev
-    links:
-      - db
-    depends_on:
-      - db
 volumes:
   pgdata:
     driver: local
