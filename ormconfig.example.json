@@ -1,0 +1,17 @@
+{
+    "type": "",
+    "port": 3000,
+    "host": "",
+    "username": "",
+    "password": "",
+    "database": "",
+    "migrations": [
+        ""
+    ],
+    "entities": [
+        ""
+    ],
+    "cli": {
+        "migrationsDir": ""
+    }
+}
