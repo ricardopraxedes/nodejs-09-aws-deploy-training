@@ -9,6 +9,7 @@ import swaggerFile from "../../../swagger.json";
 import "../../container";
 import { createDBConnection } from "../typeorm";
 import { router } from "./routes";
+import { rateLimiterMiddleware } from "./middlewares/rateLimiter";
 
 createDBConnection();
 
@@ -18,6 +19,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
+app.use(rateLimiterMiddleware);
 
 app.use(router);
 
